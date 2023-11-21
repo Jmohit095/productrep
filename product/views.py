@@ -61,6 +61,7 @@ class ProductAPI(APIView):
         if  product.is_valid():
             product.save()
             context['data'] = product.data
+            context['error'] = ""
             return Response(data = context, status = status.HTTP_200_OK)
         else:
             print(product.errors)
